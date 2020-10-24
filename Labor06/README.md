@@ -90,16 +90,7 @@ data class ShoppingItem(
         companion object {
             @JvmStatic
             @TypeConverter
-            fun getByOrdinal(ordinal: Int): Category? {
-                var ret: Category? = null
-                for (cat in values()) {
-                    if (cat.ordinal == ordinal) {
-                        ret = cat
-                        break
-                    }
-                }
-                return ret
-            }
+            fun getByOrdinal(ordinal: Int) = values().firstOrNull { it.ordinal == ordinal }
             
             @JvmStatic
             @TypeConverter
